@@ -1,5 +1,6 @@
-const { User, Feedback } = require('../models');
+const { User, Feedback } = require('..');
 
+feedbackController.js
 module.exports = {
   async create(req, res) {
     try {

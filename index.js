@@ -1,10 +1,9 @@
 const Sequelize = require('sequelize');
-const sequelize = require('../config/database');
+const sequelize = require('./config/database');
 
-const User = require('./user')(sequelize);
-const Product = require('./product')(sequelize);
-const Feedback = require('./feedback')(sequelize);
-
+const User = require('./models/user')(sequelize);
+const Product = require('./models/product')(sequelize);
+const Feedback = require('./models/feedback')(sequelize);
 
 User.hasMany(Feedback, { foreignKey: 'userId', as: 'feedbacks', onDelete: 'CASCADE' });
 Feedback.belongsTo(User, { foreignKey: 'userId', as: 'user' });

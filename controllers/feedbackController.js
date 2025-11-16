@@ -1,11 +1,10 @@
-const { Feedback, User, Product } = require('../models');
+const { Feedback, User, Product } = require('..');
 
 module.exports = {
   async create(req, res) {
     try {
       const { userId, productId } = req.body;
 
-      // checar existência de user e product
       const user = await User.findByPk(userId);
       if (!user) return res.status(400).json({ error: 'Usuário inválido' });
 
